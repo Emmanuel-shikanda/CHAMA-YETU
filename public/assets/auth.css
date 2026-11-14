@@ -1,0 +1,187 @@
+/* =========================================================
+   CHAMA-YETU login + register styles
+   Loaded AFTER styles.css, so it reuses the colours, fonts,
+   .btn, .btn-green and .badge classes from the homepage.
+   Sections: 1 Layout | 2 Image panel | 3 Form panel
+             4 Form fields | 5 Responsive
+   ========================================================= */
+
+/* ---------- 1. LAYOUT ---------- */
+/* Two columns: image on the left, form on the right */
+.auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- 2. IMAGE PANEL (left side) ---------- */
+.auth-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  color: var(--white);
+  /* Dark overlay + your photo. If the photo is missing, the dark green gradient shows instead. */
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.88) 100%),
+    url("/assets/images/krakenimages-Y5bvRlcCx8k-unsplash.jpg") center / cover no-repeat,
+    linear-gradient(135deg, #1f2937 55%, #1f4a40 100%);
+}
+
+/* Top row of the image panel: logo on the left, pill on the right */
+.auth-visual-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+
+/* GLASSMORPHISM: see-through white + blur of the photo behind + thin light border */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo (same <img> as the homepage) sits top-left inside a glass chip */
+.auth-logo { display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 12px; }
+.auth-logo .logo-icon { width: 30px; height: 30px; }
+.auth-logo .logo-name { color: var(--white); }
+
+/* Small glass pill (e.g. "Verified Chama Platform") */
+.auth-pill { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; color: var(--white); padding: 6px 12px; border-radius: 20px; }
+
+/* Glass pill above the heading, e.g. "Secure Chama Vault" */
+.auth-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.auth-visual-text h2 { font-size: 34px; margin-bottom: 10px; }
+.auth-visual-text p { font-size: 14px; color: #d5dbe5; max-width: 380px; }
+
+/* Three small step cards at the bottom of the image */
+.auth-steps { display: flex; gap: 12px; margin-top: 24px; }
+
+/* Dark green glass card */
+.auth-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(34, 140, 90, 0.28) 0%, rgba(8, 50, 34, 0.55) 100%);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font-size: 10px;
+  color: #b4cfc0;
+}
+
+/* Top row of the card: number circle on the left, small icon on the right */
+.auth-step-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.auth-step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-step-icon { width: 14px; height: 14px; display: block; }
+
+.auth-step h4 { font-size: 12px; line-height: 1.25; color: var(--white); }
+
+/* Highlighted card (used for the current step on the register page) */
+.auth-step-active { background: linear-gradient(160deg, rgba(74, 222, 128, 0.35) 0%, rgba(20, 90, 60, 0.6) 100%); }
+
+/* ---------- 3. FORM PANEL (right side) ---------- */
+.auth-form-side {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 40px;
+  background: var(--lavender);
+}
+
+/* "Back to Home" link at the top */
+.auth-topbar { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-grey); }
+.auth-topbar a { font-weight: 500; color: var(--green-dark); }
+
+/* Keeps the form centred and not too wide */
+.auth-box { width: 100%; max-width: 420px; margin: auto; padding: 30px 0; }
+.auth-box h1 { font-size: 30px; margin: 12px 0 6px; }
+
+
+.auth-switch { text-align: center; font-size: 13px; color: var(--text-grey); margin-top: 18px; }
+.auth-switch a { font-weight: 500; color: var(--green-dark); }
+
+.auth-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; font-size: 11px; color: var(--text-grey); }
+
+/* ---------- 4. FORM FIELDS ---------- */
+.form-group { margin-bottom: 16px; }
+
+.form-label-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--navy); }
+.form-link { font-size: 12px; font-weight: 500; color: var(--green-dark); }
+
+.form-input {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--blue-light);
+  border-radius: 8px;
+  padding: 13px 14px;
+}
+.form-input::placeholder { color: #94a3b8; }
+.form-input:focus { outline: 2px solid var(--green); border-color: var(--green); }
+
+.form-hint { display: block; font-size: 11px; color: var(--text-grey); margin-top: 6px; }
+
+/* Password field with the show/hide button on the right */
+.password-wrap { position: relative; }
+.password-wrap .form-input { padding-right: 46px; }
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.password-toggle img { width: 20px; height: 20px; display: block; }
+
+/* Checkbox rows (Remember me / Terms) */
+.form-check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-grey); margin-bottom: 18px; }
+.form-check input { width: 16px; height: 16px; accent-color: var(--green); }
+.form-check a { font-weight: 500; color: var(--green-dark); }
+
+/* Full-width submit button (uses .btn .btn-green from styles.css) */
+.btn-full { width: 100%; border: none; cursor: pointer; text-align: center; }
+
+/* ---------- 5. RESPONSIVE ---------- */
+/* Tablet and phone: stack the image on top of the form */
+@media (max-width: 900px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth-visual { min-height: 240px; padding: 20px; }
+  .auth-visual-text h2 { font-size: 26px; }
+  .auth-steps { display: none; }
+  .auth-form-side { padding: 24px 20px; }
+}
+
+@media (max-width: 600px) {
+  .auth-box h1 { font-size: 26px; }
+  .auth-topbar { font-size: 12px; }
+}

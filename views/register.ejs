@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account | CHAMA-YETU</title>
+  <!-- Same fonts as the homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Homepage styles first, then the login/register styles -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/auth.css">
+</head>
+<body>
+
+  <main class="auth">
+
+    <!-- ============ LEFT: IMAGE PANEL ============ -->
+    <section class="auth-visual">
+      <div class="auth-visual-top">
+        <!-- Same logo image as the homepage, inside a glass chip -->
+        <a href="/" class="logo auth-logo glass">
+          <img class="logo-icon" src="assets/images/icons8-teamwork-100.png" alt="CHAMA-YETU Logo">
+          <span class="logo-name">CHAMA-YETU</span>
+        </a>
+      </div>
+
+      <div class="auth-visual-text">
+        <h2>Start your Journey</h2>
+       <p>Join Kenyans saving smarter together. Zero setup fee, start in under 2 minutes.</p>
+
+        <div class="auth-steps">
+          <!-- Card 1 is highlighted (current step) -->
+          <div class="auth-step auth-step-active">
+            <div class="auth-step-top">
+              <span class="auth-step-num">1</span>
+              <img class="auth-step-icon" src="assets/images/icons8-tick-100.png" alt="">
+            </div>
+            <h4>Register your account</h4>
+            <span>Create your login</span>
+          </div>
+          <!-- Card 2 -->
+          <div class="auth-step">
+            <div class="auth-step-top">
+              <span class="auth-step-num">2</span>
+              <img class="auth-step-icon" src="assets/images/icons8-person-24.png" alt="">
+            </div>
+            <h4>Set up your profile information</h4>
+            <span>Add your details</span>
+          </div>
+          <!-- Card 3 -->
+          <div class="auth-step">
+            <div class="auth-step-top">
+              <span class="auth-step-num">3</span>
+              <img class="auth-step-icon" src="assets/images/icons8-lock-100.png" alt="">
+            </div>
+            <h4>Verify your identity &amp; phone</h4>
+            <span>Confirm and finish</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RIGHT: REGISTRATION FORM ============ -->
+    <section class="auth-form-side">
+
+      <div class="auth-topbar">
+        <a href="/">← Back to Home</a>
+        <span>Need help? <a href="/support">Contact Support</a></span>
+      </div>
+
+      <div class="auth-box">
+        <span class="badge badge-blue">NEW MEMBER</span>
+        <h1>Join Us</h1>
+      
+
+        <form action="#" method="post">
+
+          <!-- Full name -->
+          <div class="form-group">
+            <label class="form-label" for="full-name">Full name</label>
+            <input class="form-input" type="text" id="full-name" name="full-name" placeholder="e.g. Wanjiku Kamau" required>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+
+          <!-- Phone number (used for M-Pesa) -->
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. 0722 000 000" required>
+            <span class="form-hint">Use your Safaricom number for M-Pesa.</span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="password-wrap">
+              <input class="form-input" type="password" id="password" name="password" placeholder="Create a password" minlength="12" required>
+              <!-- Show/hide button: add your own image and JavaScript later -->
+              <button class="password-toggle" type="button" aria-label="Show password">
+                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              </button>
+            </div>
+            <span class="form-hint">At least 12 characters.</span>
+          </div>
+
+          <!-- Confirm password -->
+          <div class="form-group">
+            <label class="form-label" for="confirm-password">Confirm password</label>
+            <div class="password-wrap">
+              <input class="form-input" type="password" id="confirm-password" name="confirm-password" placeholder="Repeat your password" required>
+              <button class="password-toggle" type="button" aria-label="Show password">
+                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms and conditions -->
+          <label class="form-check">
+            <input type="checkbox" name="terms" required>
+            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Notice</a></span>
+          </label>
+
+          <button type="submit" class="btn btn-green btn-full">Create Account →</button>
+        </form>
+
+        <p class="auth-switch">Already have an account? <a href="/login">Sign in</a></p>
+      </div>
+
+      <div class="auth-footer">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <span>© Chama-Yetu</span>
+      </div>
+
+    </section>
+  </main>
+
+</body>
+</html>

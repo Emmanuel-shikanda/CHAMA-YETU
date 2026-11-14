@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support | CHAMA-YETU</title>
+  <!-- Same fonts as the homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Homepage styles, login/register styles, contact styles, then FAQ styles -->
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/auth.css">
+  <link rel="stylesheet" href="/assets/contact.css">
+  <link rel="stylesheet" href="/assets/support.css">
+</head>
+<body>
+
+  <!-- ============ TOP OF THE PAGE: YOUR DESIGN (image left, form right) ============ -->
+  <main class="auth contact">
+
+    <!-- ---------- LEFT: IMAGE PANEL ---------- -->
+    <section class="auth-visual">
+
+      <div class="auth-visual-top">
+        <!-- Your logo image inside a glass chip -->
+        <a href="/" class="logo auth-logo glass">
+          <img class="logo-icon" src="/assets/images/icons8-teamwork-100.png" alt="CHAMA-YETU Logo">
+          <span>
+            <span class="logo-name">CHAMA-YETU</span>
+            <span class="logo-tagline">COLLECTIVE WEALTH</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="auth-visual-text">
+        <h2>Chama Yetu: Collecting wealth,</h2>
+        <p>We are always here to support you 24/7.</p>
+
+        <!-- Three glass cards -->
+        <div class="auth-steps">
+          <div class="auth-step">
+            <span class="contact-card-icon"><img class="my-icon" src="assets/images/icons8-electric-100.png" alt=""></span>
+            <h4>Instant M-Pesa</h4>
+            <span>STK push &amp; payout resolution</span>
+          </div>
+          <div class="auth-step">
+            <span class="contact-card-icon"><img class="my-icon" src="assets/images/icons8-phone-100.png" alt=""></span>
+            <h4>24/7 Support</h4>
+            <span>&lt; 5 mins response Nairobi desk</span>
+          </div>
+          <div class="auth-step">
+            <span class="contact-card-icon"><img class="my-icon" src="assets/images/icons8-trust-100.png" alt=""></span>
+            <h4>Bank Trust</h4>
+            <span>CBK &amp; ODPC encrypted records</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- RIGHT: SUPPORT FORM ---------- -->
+    <section class="auth-form-side">
+
+      <div class="auth-topbar">
+        <a href="/">← Back to Home</a>
+        <span class="hotline"><span class="dot"></span> Hotline: +254 700 000 000</span>
+      </div>
+
+      <div class="auth-box">
+        <h1>Contact Support</h1>
+        <p class="contact-intro">Fill in the details below and an M-Pesa Chama specialist will get back to you immediately.</p>
+
+        <form action="#" method="post">
+
+          <!-- Full name -->
+          <div class="form-group">
+            <label class="form-label" for="full-name">Your full name <span class="required">*</span></label>
+            <input class="form-input" type="text" id="full-name" name="full-name" placeholder="e.g. Wanjiku Kamau" required>
+          </div>
+
+          <!-- Phone number -->
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number / M-Pesa line <span class="required">*</span></label>
+            <div class="phone-row">
+              <span class="phone-prefix">KE +254</span>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="712 345 678" required>
+            </div>
+          </div>
+
+          <!-- Chama name (optional) -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label class="form-label" for="chama-name">Chama Name</label>
+              <span class="optional">Optional</span>
+            </div>
+            <input class="form-input" type="text" id="chama-name" name="chama-name" placeholder="e.g. Harambee Women Savings Collective">
+          </div>
+
+          <!-- Issue category: 4 buttons, only one can be chosen -->
+          <div class="form-group">
+            <span class="form-label">Issue Category <span class="required">*</span></span>
+            <div class="issue-grid">
+              <label class="issue-option">
+                <input type="radio" name="category" value="mpesa" checked>
+                <span>↯ M-Pesa STK &amp; Payout</span>
+              </label>
+              <label class="issue-option">
+                <input type="radio" name="category" value="rotations">
+                <span>↻ Cycle Rotations</span>
+              </label>
+              <label class="issue-option">
+                <input type="radio" name="category" value="account">
+                <span>⚙ Account Access</span>
+              </label>
+              <label class="issue-option">
+                <input type="radio" name="category" value="general">
+                <span>? General Inquiry</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label" for="message">Describe your issue <span class="required">*</span></label>
+            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Describe what happened, including M-Pesa transaction codes (e.g. QKH63JD92L) if applicable..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-green btn-full">Submit Support Request →</button>
+        </form>
+
+        <!-- WhatsApp box -->
+        <div class="whatsapp-box">
+          <span class="whatsapp-icon"><img class="my-icon" src="assets/images/icons8-whatsapp-100.png" alt=""></span>
+          <div class="whatsapp-text">
+            <strong>Direct WhatsApp Dispatch</strong>
+            +254 711 000 000 (Mon - Sun)
+          </div>
+          <a href="#" class="whatsapp-chat">Chat Now ↗</a>
+          <a href="#" class="whatsapp-mail" aria-label="Email us">✉</a>
+        </div>
+      </div>
+
+      <!-- Footer links -->
+      <div class="auth-footer">
+        <span>
+          <a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Cookies</a> · <a href="#">Acceptable Use</a>
+        </span>
+        <span class="licensed">✓ Licensed ODPC Compliant</span>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ============ FAQ (below the design) ============ -->
+  <section class="section section-white" id="faq">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Click a question to see the answer.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>How do I create a chama?</summary>
+          <p class="faq-answer">Register an account, then choose Create Chama. Set your member limit, contribution amount, contribution dates and rotation order, then invite your members.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I join an existing chama?</summary>
+          <p class="faq-answer">Ask the chama's treasurer for an invite. Open the invite, sign in or register, and you will take your place in the rotation.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I make contributions?</summary>
+          <p class="faq-answer">On payment day you receive an M-Pesa prompt on your phone. Enter your M-Pesa PIN to approve it, and your contribution is recorded in the group ledger.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do M-Pesa payments work?</summary>
+          <p class="faq-answer">CHAMA-YETU uses the Safaricom Daraja API. Contributions are collected with an STK push sent to the member's phone, and you approve it with your own PIN.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How are payouts managed?</summary>
+          <p class="faq-answer">The member whose turn it is receives the pooled amount by M-Pesa, following the rotation order set when the chama was created. Payouts need approval from both the Treasurer and the Secretary.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens if a member misses a contribution?</summary>
+          <p class="faq-answer">Members get automatic SMS and WhatsApp reminders before the deadline. A missed contribution shows in the live ledger so the treasurer can follow it up, according to your chama's own rules.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I report suspicious activity?</summary>
+          <p class="faq-answer">Use the form at the top of this page and describe what you noticed, with the date and any M-Pesa transaction code. Never share your PIN or password with anyone.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I leave a chama?</summary>
+          <p class="faq-answer">Tell your chama's treasurer that you want to leave. Any money owed should be settled first so the group's records stay correct. If you need help, contact us using the form above.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER (same as the homepage) ============ -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>

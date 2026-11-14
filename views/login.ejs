@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In | CHAMA-YETU</title>
+  <!-- Same fonts as the homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Homepage styles first, then the login/register styles -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/auth.css">
+</head>
+<body>
+
+  <main class="auth">
+
+    <!-- ============ LEFT: IMAGE PANEL ============ -->
+    <section class="auth-visual">
+      <div class="auth-visual-top">
+        <!-- Same logo image as the homepage, inside a glass chip -->
+        <a href="/" class="logo auth-logo glass">
+          <img class="logo-icon" src="assets/images/icons8-teamwork-100.png" alt="CHAMA-YETU Logo">
+          <span class="logo-name">CHAMA-YETU</span>
+        </a>
+        
+      </div>
+
+      <div class="auth-visual-text">
+        <h2>Welcome Back</h2>
+        <p>Manage your merry-go-round rotations, track M-Pesa STK payouts, and keep your group ledger transparent.</p>
+
+        <div class="auth-steps">
+          <!-- Card 1 (add your own small icon image in each card) -->
+          <div class="auth-step">
+            <div class="auth-step-top">
+              <span class="auth-step-num">1</span>
+              <img class="auth-step-icon" src="assets/images/icons8-electricity-100.png" alt="">
+            </div>
+            <h4>Instant M-Pesa Access</h4>
+            <span>Express STK prompt sync</span>
+          </div>
+          <!-- Card 2 -->
+          <div class="auth-step">
+            <div class="auth-step-top">
+              <span class="auth-step-num">2</span>
+              <img class="auth-step-icon" src="assets/images/icons8-rotation-100.png" alt="">
+            </div>
+            <h4>Automated Rotations</h4>
+            <span>Transparent round queue</span>
+          </div>
+          <!-- Card 3 -->
+          <div class="auth-step">
+            <div class="auth-step-top">
+              <span class="auth-step-num">3</span>
+              <img class="auth-step-icon" src="assets/images/icons8-optimization-24.png" alt="">
+            </div>
+            <h4>Bank-Grade ODPC</h4>
+            <span>256-bit Kenyan ledger</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RIGHT: LOGIN FORM ============ -->
+    <section class="auth-form-side">
+
+      <div class="auth-topbar">
+        <a href="/">← Back to Home</a>
+        <span>Need help? <a href="/support">Contact Support</a></span>
+      </div>
+
+      <div class="auth-box">
+        <h1>Sign In</h1>
+       
+
+        <form action="#" method="post">
+
+          <!-- Email or username -->
+          <div class="form-group">
+            <label class="form-label" for="login-id">Email address or username</label>
+            <input class="form-input" type="text" id="login-id" name="login-id" placeholder="name@example.com or username" required>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label class="form-label" for="login-password">Password</label>
+              <a href="#" class="form-link">Forgot password?</a>
+            </div>
+            <div class="password-wrap">
+              <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required>
+              <!-- Show/hide button: add your own image and JavaScript later -->
+              <button class="password-toggle" type="button" aria-label="Show password">
+                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember me -->
+          <label class="form-check">
+            <input type="checkbox" name="remember">
+            Keep me signed in on this device
+          </label>
+
+          <button type="submit" class="btn btn-green btn-full">Sign In →</button>
+        </form>
+
+        <p class="auth-switch">Don't have an account? <a href="/register">Create account</a></p>
+      </div>
+
+      <div class="auth-footer">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <span>© Chama-Yetu</span>
+      </div>
+
+    </section>
+  </main>
+
+</body>
+</html>
