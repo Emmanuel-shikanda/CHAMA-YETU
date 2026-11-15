@@ -1,0 +1,224 @@
+/* =========================================================
+   CHAMA-YETU member dashboard
+   Load order: styles.css -> member-dashboard.css
+   Classes start with "md-" so they never clash with other pages.
+   Sections: 1 Page | 2 Header | 3 Sidebar | 4 Overview page
+             5 Footer | 6 Responsive
+   ========================================================= */
+
+/* ---------- 1. PAGE ---------- */
+:root {
+  --md-dark: #053b2ccb;      /* deep green (sidebar, dark card) */
+  --md-green: #0f8a4f;     /* main green */
+  --md-bright: #16a34a;    /* active link / buttons */
+  --md-mint: #e6f7ef;      /* light green chips */
+  --md-line: #e3ebe7;      /* thin borders */
+  --md-shadow: 0 6px 18px rgba(15, 138, 79, 0.16);   /* green shadow for white cards */
+}
+.md-body {
+  background: #ffffff;      /* pure white */
+  padding: 10px;
+  height: 100vh;
+  height: 100dvh;            /* full screen height (also correct on phones) */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;          /* the page itself does not scroll */
+}
+.md-header { flex-shrink: 0; }   /* header always stays at the top */
+.md-layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 0 24px;
+  margin-top: 10px;
+  flex: 1;                   /* fill the rest of the screen */
+  min-height: 0;             /* lets the two columns scroll instead of growing */
+}
+.md-content {
+  padding: 20px 20px 0 0;
+  min-height: 0;
+  overflow-y: auto;          /* the main content has its OWN scroll */
+  scrollbar-width: thin;
+}
+.md-page[hidden] { display: none; }
+
+/* Small helpers used all over the page */
+.md-chip { display: inline-block; padding: 4px 8px; border-radius: 6px; background: var(--md-mint); border: 1px solid #bfe8d1; font-size: 11px; font-weight: 500; color: var(--md-green); }
+.md-btn { display: inline-block; padding: 7px 12px; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer;}
+.md-btn-green { background: var(--md-dark); color: var(--white); }
+.md-btn-dark { background: var(--md-dark); color: var(--white); padding: 11px 16px; font-size: 14px; }
+.md-btn-light { background: var(--white); border: 1px solid var(--md-line); color: var(--navy); font-size: 13px; padding: 9px 14px; }
+.md-avatar { border-radius: 50%; background: #c8d8d0; object-fit: cover; }
+.md-bar { height: 5px; border-radius: 5px; background: #dfe9e4; overflow: hidden; }
+.md-bar span { display: block; height: 100%; background: var(--md-bright); }
+
+/* ---------- 2. HEADER ---------- */
+.md-header { display: flex; align-items: center; gap: 18px; padding: 10px 16px; border-radius: 20px; background: var(--white); border: 1px solid var(--md-line); }
+.md-logo { display: flex; align-items: center; gap: 10px; }
+.md-logo-box { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+.md-logo-box img { width: 44px; height: 44px; }
+.md-logo strong { font-family: 'Poppins', sans-serif; font-size: 18px; color: var(--md-dark); }
+.md-logo .md-chip { background: var(--md-bright); color: var(--white); border: none; font-size: 10px; margin-left: 4px; }
+.md-logo small { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.4px; color: var(--text-grey); }
+
+.md-status { margin-left: auto; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 20px; background: var(--md-mint); border: 1px solid #bfe8d1; font-size: 12px; font-weight: 500; color: var(--md-dark); white-space: nowrap; }
+.md-status .md-chip { background: var(--white); }
+.md-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--md-bright); }
+.md-icon { position: relative; font-size: 17px; color: var(--navy);cursor: pointer; }
+.md-icon .md-dot { position: absolute; top: 0; right: -2px; }
+.md-user { display: flex; align-items: center; gap: 8px; padding-left: 14px; border-left: 1px solid var(--md-line); text-align: right; }
+.md-user strong { display: block; font-size: 13px; color: var(--navy); }
+.md-user small { font-size: 11px; font-weight: 500; color: var(--md-green); }
+.md-user .md-avatar { width: 30px; height: 30px; }
+
+/* ---------- 3. SIDEBAR ---------- */
+.md-sidebar { display: flex; flex-direction: column; padding: 22px 16px; border-radius: 0 0 0 0; border-top-left-radius:16px; border-top-right-radius: 16px; background: var(--md-bright); color: var(--white); }
+.md-pay { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; padding: 15px; border-radius: 10px; background: var(--white); border: 2px solid var(--md-dark); text-align: center; font-size: 15px; font-weight: 500; color: var(--md-green); }
+.md-nav { display: flex; flex-direction: column; gap: 6px; }
+.md-nav a { display: flex; align-items: center; gap: 12px; padding: 14px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--white); }
+.md-nav img { width: 26px; height: 26px; flex-shrink: 0; object-fit: contain; }   /* your own icon images */
+.md-pay img { width: 22px; height: 22px; object-fit: contain; }
+.md-nav a:hover { background: rgba(255, 255, 255, 0.08); }
+.md-nav a.active { background: var(--md-dark); color: var(--white); }
+
+.md-live { margin-top: auto; padding-top: 40px; font-size: 11px; }
+.md-live-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.md-live-row b { font-weight: 500; color: var(--white); letter-spacing: 0.3px; }
+.md-live .md-bar { background: rgba(255, 255, 255, 0.15); margin: 4px 0; }
+.md-live .md-bar span { background: var(--white); }
+.md-live .md-chip { background: var(--md-bright); border-color: rgba(255, 255, 255, 0.7); color: var(--white); }
+.md-turn { margin-top: 10px; padding: 10px; border-radius: 10px; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.12); }
+.md-turn strong { display: block; font-size: 13px; margin: 3px 0; }
+
+.md-sidebar {
+  min-height: 0;
+  overflow-y: auto;          /* the sidebar has its OWN scroll */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* ---------- 4. OVERVIEW PAGE ---------- */
+.md-title-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.md-title-row h1 { display: inline; font-size: 26px; color: var(--md-dark); margin-right: 8px; }
+.md-title-row .md-chip { padding: 6px 10px; border-radius: 20px; font-size: 12px; }
+
+.md-label { margin: 22px 0 10px; font-size: 12px; font-weight: 500; letter-spacing: 0.6px; color: var(--md-dark); }
+.md-label span { color: #94a3b8; }
+.md-label-row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 22px; }
+.md-label-row .md-label { margin: 0; }
+.md-label-row small { display: block; font-size: 12px; color: var(--text-grey); }
+.md-label-row a { font-size: 13px; font-weight: 500; color: var(--md-green); }
+
+/* Four money cards */
+.md-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.md-stat { padding: 14px; border-radius: 16px; background: var(--white); border: 1px solid var(--md-line); font-size: 11px; color: var(--text-grey); }
+.md-stat-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; font-weight: 500; letter-spacing: 0.4px; }
+.md-stat-top .md-chip { white-space: nowrap; }
+.md-money { display: flex; justify-content: space-between; align-items: flex-end; gap: 6px; margin: 6px 0; }
+.md-money strong { font-family: 'Poppins', sans-serif; font-size: 23px; line-height: 1.15; color: var(--md-dark); }
+.md-stat p { margin-top: 4px; }
+.md-stat b { display: block; font-weight: 500; letter-spacing: 0.4px; }
+.md-stat .md-bar { margin: 6px 0 4px; }
+
+.md-stat-dark { background: var(--md-bright); border: none; color: var(--white); }
+.md-stat-dark .md-money strong { color: var(--white); }
+.md-stat-dark .md-chip { background: var(--md-bright); border-color: rgba(255, 255, 255, 0.7); color: var(--white); }
+.md-stat-dark p { color: var(--white); font-size: 12px; }
+.md-stat-active { border: 2px solid #8fdcb4; }
+
+/* Rotation cards */
+.md-rounds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+.md-round { padding: 14px; min-height: 138px; border-radius: 16px; background: var(--white); border: 1px solid var(--md-line); font-size: 11px; color: var(--text-grey); }
+.md-round-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.md-person { display: flex; gap: 10px; align-items: center; }
+.md-person .md-avatar { width: 36px; height: 36px; }
+.md-person strong { display: block; font-size: 14px; color: var(--navy); }
+.md-person small { display: block; margin-top: 4px; font-size: 11px; }
+.md-round-sum { display: flex; justify-content: space-between; margin-top: 30px; font-size: 12px; }
+.md-round-sum b { color: var(--navy); }
+.md-round-active { border: 2px solid var(--md-bright); }
+.md-round-active .md-bar { margin: 10px 0 12px; }
+.md-round-active .md-chip { border-radius: 20px; background: var(--md-bright); color: var(--white); padding: 6px 9px; }
+
+/* "Your turn" banner */
+.md-turn-banner { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding: 14px 18px; border-radius: 16px; background: var(--white); border: 2px solid #8fdcb4; font-size: 13px; color: var(--text-grey); }
+.md-turn-banner > .md-avatar { width: 46px; height: 46px; border: 2px solid var(--md-bright); }
+.md-turn-banner .md-chip { background: var(--md-bright); color: var(--white); }
+.md-turn-banner strong { color: var(--navy); margin-left: 6px; }
+.md-turn-banner p { margin-top: 6px; }
+.md-turn-banner p b { font-weight: 500; color: var(--navy); }
+.md-pot { margin-left: auto; text-align: right; font-size: 11px; font-weight: 500; letter-spacing: 0.4px; }
+.md-pot strong { display: block; font-family: 'Poppins', sans-serif; font-size: 23px; color: var(--md-dark); }
+
+/* Other pages: just a title for now */
+.md-page > h1 { font-size: 26px; color: var(--md-dark); }
+
+/* ---------- 5. FOOTER ---------- */
+.md-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 30px; padding: 20px 0; border-top: 1px solid var(--md-line); font-size: 12px; color: var(--text-grey); }
+.md-footer span + span { margin-left: 14px; }
+.md-footer b { font-weight: 500; color: var(--md-dark); }
+
+/* Green shadow on every white card */
+.md-header, .md-stat, .md-round, .md-turn-banner { box-shadow: var(--md-shadow); }
+
+/* Menu switch, menu button, close button and overlay: hidden on big screens */
+.md-menu-check { position: absolute; opacity: 0; pointer-events: none; }
+.md-menu-btn, .md-close, .md-overlay { display: none; }
+
+/* ---------- 6. RESPONSIVE ---------- */
+@media (max-width: 1280px) {
+  .md-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1100px) {
+  .md-status { display: none; }
+  .md-user { margin-left: auto; }
+}
+@media (max-width: 900px) {
+  .md-body { height: auto; overflow: visible; }
+  .md-layout { grid-template-columns: 1fr; display: block; }
+  .md-content { overflow: visible; }
+  .md-sidebar { overflow: visible; }
+
+  /* Menu button beside the logo */
+  .md-menu-btn { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border: 1px solid var(--md-line); border-radius: 10px; background: var(--white); cursor: pointer; }
+  .md-menu-btn img { width: 26px; height: 26px; }
+
+  /* Sidebar: hidden off-screen until the menu button is pressed */
+  .md-sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 280px; max-width: 85vw; z-index: 30; margin: 0; border-radius: 0 24px 24px 0; overflow-y: auto; transform: translateX(-100%); transition: transform 0.25s; }
+  .md-menu-check:checked ~ .md-layout .md-sidebar { transform: translateX(0); }
+
+  /* Dark area behind the open menu */
+  .md-menu-check:checked ~ .md-overlay { display: block; position: fixed; inset: 0; z-index: 20; background: rgba(5, 59, 44, 0.45); }
+
+  /* Close button at the top of the open menu */
+  .md-close { display: flex; justify-content: flex-end; margin-bottom: 10px; cursor: pointer; }
+  .md-close img { width: 28px; height: 28px; }
+  .md-sidebar { border-radius: 20px; margin-bottom: 16px; }
+  .md-live { padding-top: 20px; }
+  .md-content { padding-right: 0; }
+  .md-rounds { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .md-body { padding: 6px; }
+  .md-stats { grid-template-columns: 1fr; }
+  .md-title-row { flex-direction: column; align-items: flex-start; }
+  .md-turn-banner { flex-wrap: wrap; }
+  .md-pot { margin-left: 0; text-align: left; }
+  .md-user div { display: none; }
+}
+
+/* ---------- 7. HEADER ON SMALL SCREENS ---------- */
+/* Keep the brand name and subtitle on one line each (no wrapping) */
+.md-logo strong, .md-logo small { white-space: nowrap; }
+.md-logo > span:last-child { display: flex; flex-direction: column; align-items: flex-start; }
+.md-logo > span:last-child > strong { display: inline; }
+
+@media (max-width: 700px) {
+  .md-header { gap: 10px; padding: 8px 12px; }
+  .md-logo { gap: 8px; }
+  .md-logo-box, .md-logo-box img { width: 36px; height: 36px; }
+  .md-logo strong { font-size: 16px; }
+  .md-logo .md-chip { margin: 2px 0 0; }       /* MEMBER sits under the name */
+  .md-logo small { display: none; }            /* long subtitle hidden on small screens */
+  .md-user { padding-left: 8px; }
+  .md-user div { display: none; }              /* keep just the photo */
+}

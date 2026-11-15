@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Chama Overview | CHAMA-YETU</title>
+  <!-- Same fonts as the rest of the website -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Your colours and fonts first, then the member dashboard styles -->
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/member.css">
+</head>
+<body class="md-body">
+
+  <!-- Menu on/off switch (no JavaScript): the menu button below is a label for this checkbox -->
+  <input type="checkbox" id="md-menu" class="md-menu-check">
+  <!-- Dark area behind the open menu: tap it to close the menu -->
+  <label for="md-menu" class="md-overlay"></label>
+
+  <!-- ============ HEADER ============ -->
+  <header class="md-header">
+    <!-- Menu button: add your own image (shows on small screens only) -->
+    <label for="md-menu" class="md-menu-btn" aria-label="Open menu"><img src="/assets/images/nav-menu.png" alt=""></label>
+
+    <a href="/member" class="md-logo">
+      <!-- Your logo image -->
+      <span class="md-logo-box"><img src="/assets/images/icons8-teamwork-100.png" alt="CHAMA-YETU Logo"></span>
+      <span>
+        <strong>CHAMA-YETU</strong><span class="md-chip">MEMBER</span>
+        <small>SAVINGS LEDGER</small>
+      </span>
+    </a>
+
+
+    <div class="md-status">
+      <span class="md-dot"></span> System: Online
+    </div>
+
+    <span class="md-icon">🔔︎<span class="md-dot"></span></span>
+    <span class="md-icon">⚙</span>
+
+    <div class="md-user">
+      <div><strong>Wanjiku K.</strong><small>Member • #HW-042</small></div>
+      <!-- Add your own photo path here -->
+      <img class="md-avatar" src="/assets/images/member-wanjiku.jpg" alt="">
+    </div>
+  </header>
+
+  <div class="md-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+  <%- include('partials/nav-bar') %>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="md-content">
+
+      <!-- ---------- PAGE 1: My Chama Overview ---------- -->
+      <section class="md-page" id="overview">
+
+        <div class="md-title-row">
+          <div>
+            <h1>My Chama</h1>
+            <span class="md-chip"><span class="md-dot"></span> Cycle #4 Active</span>
+          </div>
+          <a href="#" class="md-btn md-btn-light">⤓ &nbsp;Statement</a>
+        </div>
+
+        <p class="md-label">MY MONEY <span>• 2026</span></p>
+
+        <!-- Four money cards -->
+        <div class="md-stats">
+          <div class="md-stat md-stat-dark">
+            <div class="md-stat-top">VAULT SHARE <span class="md-chip">+8.4%</span></div>
+            <div class="md-money"><strong>KES<br>45,000</strong><a href="#" class="md-btn md-btn-green">Withdraw</a></div>
+            <b style="color: #fff">POT + DIVIDENDS</b>
+            <p>Welfare loans available</p>
+          </div>
+
+          <div class="md-stat">
+            <div class="md-stat-top">RECEIVED <span class="md-chip">Cycle #2</span></div>
+            <div class="md-money"><strong>KES<br>150,000</strong><a href="#" class="md-btn md-btn-green">Withdraw</a></div>
+            <b>LAST PAYOUT</b>
+            <p>Via M-Pesa • Oct 15</p>
+          </div>
+
+          <div class="md-stat">
+            <div class="md-stat-top">NEXT DUE <span class="md-chip">Good standing</span></div>
+            <div class="md-money"><strong>KES<br>15,000</strong><span class="md-chip" style="padding: 8px 10px; border-radius: 20px">Due Nov 28</span></div>
+            <p><b style="display: inline; color: var(--md-green)">Overdue: KES 0</b></p>
+            <div class="md-bar"><span style="width: 100%"></span></div>
+            <p>4 of 5 paid</p>
+          </div>
+
+          <div class="md-stat md-stat-active">
+            <div class="md-stat-top">★ MY PAYOUT <span class="md-chip md-btn-green" style="border-radius: 20px">Round #7</span></div>
+            <div class="md-money"><strong>KES<br>180,000</strong><a href="#" class="md-btn md-btn-green">Plan ›</a></div>
+            <b>PAYOUT DATE</b>
+            <p style="color: var(--navy); font-weight: 500">Feb 15, 2027 • in 3 cycles</p>
+          </div>
+        </div>
+
+        <!-- Rotation sequence -->
+        <div class="md-label-row">
+          <div>
+            <p class="md-label">ROTATION</p>
+            <small>10 members • KES 180,000 per round</small>
+          </div>
+          <a href="#cycles">View all ›</a>
+        </div>
+
+        <div class="md-rounds">
+          <div class="md-round">
+            <div class="md-round-head">
+              <div class="md-person">
+                <img class="md-avatar" src="/assets/images/member-amina.jpg" alt="">
+                <div><span>ROUND 1</span><strong>Amina Kiprono</strong><small>Aug 15, 2026</small></div>
+              </div>
+              <span class="md-chip">Paid</span>
+            </div>
+            <div class="md-round-sum"><span>Paid out:</span><b>KES 180,000</b></div>
+          </div>
+
+          <div class="md-round">
+            <div class="md-round-head">
+              <div class="md-person">
+                <img class="md-avatar" src="/assets/images/member-faith.jpg" alt="">
+                <div><span>ROUND 2</span><strong>Faith Mutua</strong><small>Sep 28, 2026</small></div>
+              </div>
+              <span class="md-chip">Paid</span>
+            </div>
+            <div class="md-round-sum"><span>Paid out:</span><b>KES 180,000</b></div>
+          </div>
+
+          <div class="md-round md-round-active">
+            <div class="md-round-head">
+              <div class="md-person">
+                <img class="md-avatar" src="/assets/images/member-halima.jpg" alt="">
+                <div><span>ROUND 4</span><strong>Halima Juma</strong><small>Today • 9/10</small></div>
+              </div>
+              <span class="md-chip">Active</span>
+            </div>
+            <small>Contributed</small>
+            <div class="md-bar"><span style="width: 90%"></span></div>
+            <div class="md-round-sum" style="margin-top: 0"><span>Collected:</span><b>KES 162,000 <span style="font-weight: 400; color: #94a3b8">/ 180k</span></b></div>
+          </div>
+        </div>
+
+        <!-- Your turn banner -->
+        <div class="md-turn-banner">
+          <img class="md-avatar" src="/assets/images/member-wanjiku.jpg" alt="">
+          <div>
+            <span class="md-chip">YOUR TURN</span><strong>Wanjiku Kamau</strong>
+            <p>Opens <b>Feb 15, 2027</b> • M-Pesa +254 712 *** 890</p>
+          </div>
+          <div class="md-pot">POT VALUE<strong>KES 180,000</strong></div>
+          <a href="#payout" class="md-btn md-btn-dark">View Plan</a>
+        </div>
+      </section>
+
+      <!-- ---------- OTHER PAGES ----------
+           Each one is hidden until its sidebar link is clicked.
+           Paste each page's design inside its section when you have it. -->
+      <section class="md-page" id="cycles" hidden><h1>Cycles</h1></section>
+      <section class="md-page" id="history" hidden><h1>Contributions</h1></section>
+      <section class="md-page" id="payout" hidden><h1>My Payout</h1></section>
+      <section class="md-page" id="welfare" hidden><h1>Welfare Pot</h1></section>
+      <section class="md-page" id="constitution" hidden><h1>Constitution</h1></section>
+      <section class="md-page" id="transactions" hidden><h1>Transactions</h1></section>
+      <section class="md-page" id="members" hidden><h1>Members</h1></section>
+      <section class="md-page" id="disputes" hidden><h1>Reports</h1></section>
+
+      <!-- ============ FOOTER ============ -->
+      <footer class="md-footer">
+        <span>© 2026 CHAMA-YETU</span>
+        <span>🔒︎ 256-bit Encrypted <span><b><span class="md-dot"></span> Live sync</b></span></span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/assets/member-dashboard.js"></script>
+</body>
+</html>

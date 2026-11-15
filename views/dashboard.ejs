@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | CHAMA-YETU</title>
+  <!-- Same fonts as the rest of the website -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Your colours and fonts first, then the dashboard styles -->
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dash-body">
+
+  <!-- ============ HEADER ============ -->
+  <header class="dash-header">
+    <div class="dash-header-inner">
+
+      <!-- Left: your logo image + brand text -->
+      <a href="/dashboard" class="dash-logo">
+        <span class="dash-logo-box">
+          <img src="/assets/images/icons8-teamwork-100.png" alt="CHAMA-YETU Logo">
+        </span>
+        <span class="dash-brand">CHAMA-YETU</span>
+      </a>
+
+      <!-- Middle: Sign out -->
+      <a href="/" class="dash-signout">Sign out</a>
+
+      <!-- Right: user profile -->
+      <div class="dash-profile">
+        <span class="dash-avatar">W</span>
+        <span class="dash-user-text">
+          <span class="dash-user-name">Wanjiku</span>
+          <span class="dash-user-phone">+254 722 ••• 419</span>
+        </span>
+        <span class="dash-arrow"></span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="dash-main">
+
+    <!-- Introduction -->
+    <section class="dash-intro">
+      <div>
+        <span class="dash-eyebrow">YOUR GROUPS, ALL TOGETHER</span>
+        <h1>Hello, Wanjiku.</h1>
+        <p>Choose a chama to manage, open your member account, or create a new group.</p>
+      </div>
+
+      <div class="dash-buttons">
+        <a href="#" class="dash-btn dash-btn-light"><span class="dash-code-icon">123</span> Join with code</a>
+        <a href="#" class="dash-btn dash-btn-green">+ Create a chama</a>
+      </div>
+    </section>
+
+    <!-- Three cards in one row -->
+    <section class="dash-cards">
+
+      <!-- Card 1: existing chama group -->
+      <article class="dash-card">
+        <div class="dash-badges">
+          <span class="dash-badge">HW</span>
+          <span class="dash-badge dash-badge-pill">Treasurer</span>
+        </div>
+
+        <h2>Harambee Women Club</h2>
+        <p class="dash-card-text">Manage records and rotation cycles for this group.</p>
+
+        <div class="dash-pot">
+          <span>Pot Balance</span>
+          <strong>KES 150,000</strong>
+        </div>
+
+        <div class="dash-card-bottom">
+          <span>Savings · Welfare · Investment · Rotation</span>
+          <a href="#" class="dash-round-btn" aria-label="Open chama">↗</a>
+        </div>
+      </article>
+
+      <!-- Card 2: create a chama -->
+      <a href="#" class="dash-card dash-card-action">
+        <span class="dash-action-icon">+</span>
+        <h2>A new beginning</h2>
+        <p class="dash-card-text">Create a space for your next chama.</p>
+      </a>
+
+      <!-- Card 3: join an existing chama -->
+      <a href="#" class="dash-card dash-card-action">
+        <span class="dash-action-icon"><span class="dash-code-icon">123</span></span>
+        <h2>Enter invite code</h2>
+        <p class="dash-card-text">Connect to an existing chama group using a code.</p>
+      </a>
+
+    </section>
+  </main>
+
+
+  <!-- ============ FOOTER ============ -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>

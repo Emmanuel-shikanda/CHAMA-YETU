@@ -31,8 +31,15 @@ res.render('support')
 
 
 
+app.get('/dashboard',function(req,res){
+res.render('dashboard')
+})
 
 
+app.get('/member',function(req,res){
+res.render('member')
+
+})
 
 
 
