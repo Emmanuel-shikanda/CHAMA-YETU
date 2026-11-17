@@ -8,7 +8,7 @@
 
 /* ---------- 1. PAGE ---------- */
 :root {
-  --md-dark: #053b2ccb;      /* deep green (sidebar, dark card) */
+  --md-dark: #053b2cc3;      /* deep green (sidebar, dark card) */
   --md-green: #0f8a4f;     /* main green */
   --md-bright: #16a34a;    /* active link / buttons */
   --md-mint: #e6f7ef;      /* light green chips */

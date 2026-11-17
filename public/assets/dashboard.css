@@ -4,6 +4,7 @@
    styles.css gives us the colours (--green-dark, --navy, ...) and fonts.
    All classes here start with "dash-" so they never clash with other pages.
    Sections: 1 Page | 2 Header | 3 Intro | 4 Cards | 5 Footer | 6 Responsive
+             7 Modals (Create + Join, CSS-only with :target)
    ========================================================= */
 
 /* ---------- 1. PAGE ---------- */
@@ -256,4 +257,219 @@
   .dash-cards { grid-template-columns: 1fr; }
   .dash-card-action { min-height: 200px; }
   .dash-footer-inner { padding: 16px; }
+}
+
+
+/* =========================================================
+   7. MODALS  (Create a Chama + Join a Chama)
+   CSS-only: each modal is hidden until the URL hash matches its id.
+     <a href="#create-chama"> -> #create-chama:target is shown
+     <a href="#join-chama">   -> #join-chama:target is shown
+     <a href="#">             -> nothing is targeted, both hidden
+   Only one hash can be active at a time, so only one modal can be open.
+   ========================================================= */
+
+/* The full-screen layer. Hidden by default. */
+.dash-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;                 /* above the sticky header and everything else */
+  align-items: center;           /* centre vertically */
+  justify-content: center;       /* centre horizontally */
+  padding: 20px;
+}
+.dash-modal:target { display: flex; }
+
+/* Dark layer behind the form. It is a link, so clicking it also closes the modal. */
+.dash-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  cursor: default;
+}
+
+/* The white form box */
+.dash-modal-dialog {
+  position: relative;            /* sits above the backdrop */
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;              /* long form scrolls inside the box */
+  padding: 28px 28px 24px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 2px solid #065b26;
+  box-shadow: 0 12px 40px rgba(15, 42, 26, 0.25);
+}
+.dash-modal-dialog-sm { max-width: 440px; }
+
+/* Gentle open animation (answers the click, switched off for reduced motion) */
+.dash-modal:target .dash-modal-dialog { animation: dash-modal-in 0.18s ease-out; }
+@keyframes dash-modal-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dash-modal:target .dash-modal-dialog { animation: none; }
+}
+
+/* Stop the dashboard behind from scrolling while a modal is open.
+   Browsers without :has() simply skip this line, nothing breaks. */
+body:has(.dash-modal:target) { overflow: hidden; }
+
+/* X button, top right */
+.dash-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef0f6;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--navy);
+}
+.dash-modal-close:hover { background: #e8f8f0; color: var(--green-dark); }
+
+/* Heading block */
+.dash-modal-head { padding-right: 36px; margin-bottom: 20px; }
+.dash-modal-head h2 { font-size: 20px; color: var(--navy); }
+.dash-modal-head p { font-size: 11px; color: var(--text-grey); margin-top: 4px; }
+
+/* ----- Form fields ----- */
+.dash-form { display: flex; flex-direction: column; gap: 14px; }
+.dash-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.dash-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.dash-field label,
+.dash-identity-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--navy);
+}
+.dash-optional { font-weight: 400; color: var(--text-grey); }
+
+/* Small helper text under a field */
+.dash-hint { font-size: 9px; line-height: 1.5; color: var(--text-grey); }
+
+/* Checkbox row (sits directly in the form, not inside .dash-field) */
+.dash-check { display: flex; align-items: flex-start; gap: 8px; font-size: 10px; line-height: 1.5; color: var(--navy); cursor: pointer; }
+.dash-check input { flex-shrink: 0; width: 14px; height: 14px; margin-top: 2px; accent-color: var(--green-dark); }
+
+.dash-field input,
+.dash-field select,
+.dash-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e8e8f0;
+  border-radius: 8px;
+  background: #fafaff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--navy);
+}
+.dash-field textarea { resize: vertical; min-height: 76px; }
+.dash-field input::placeholder,
+.dash-field textarea::placeholder { color: #94a3b8; }
+
+.dash-field input:focus,
+.dash-field select:focus,
+.dash-field textarea:focus {
+  outline: none;
+  border-color: var(--green-dark);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(6, 91, 38, 0.14);
+}
+
+/* Invitation code: big, spaced, capitals (also used in the Create form) */
+.dash-field .dash-code-input {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.dash-field .dash-code-input::placeholder { letter-spacing: 1px; text-transform: none; }
+
+/* ----- Verified identity (Join form) ----- */
+.dash-identity {
+  padding: 12px;
+  border: 1px solid #e8e8f0;
+  border-radius: 8px;
+  background: #fafaff;
+}
+.dash-identity-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.dash-identity-text { flex: 1; min-width: 0; }
+.dash-identity-name { display: block; font-size: 12px; font-weight: 500; color: var(--navy); line-height: 1.3; }
+.dash-identity-phone { display: block; font-size: 10px; color: var(--text-grey); line-height: 1.3; }
+
+/* ----- Information message (Join form) ----- */
+.dash-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #c9eedb;
+  border-radius: 8px;
+  background: #e8f8f0;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--green-dark);
+}
+.dash-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--green-dark);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* ----- Buttons row ----- */
+.dash-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 16px;
+  border-top: 1px solid #efeff5;
+}
+.dash-modal-actions .dash-btn {
+  justify-content: center;
+  padding: 10px 18px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* Keyboard focus rings for the modal controls */
+.dash-modal-close:focus-visible,
+.dash-modal-actions .dash-btn:focus-visible {
+  outline: 2px solid var(--green-dark);
+  outline-offset: 2px;
+}
+
+/* ----- Modal responsive ----- */
+@media (max-width: 600px) {
+  .dash-modal { padding: 12px; }
+  .dash-modal-dialog { padding: 22px 18px 18px; max-height: calc(100dvh - 24px); }
+  .dash-modal-head h2 { font-size: 18px; }
+  .dash-field-row { grid-template-columns: 1fr; }
+  /* 16px stops iPhones zooming in when a field is tapped */
+  .dash-field input,
+  .dash-field select,
+  .dash-field textarea { font-size: 16px; }
+  /* Buttons fill the width, Create/Join on top, Cancel below */
+  .dash-modal-actions { flex-direction: column-reverse; }
+  .dash-modal-actions .dash-btn { width: 100%; padding: 12px 18px; }
 }

@@ -54,8 +54,10 @@
       </div>
 
       <div class="dash-buttons">
-        <a href="#" class="dash-btn dash-btn-light"><span class="dash-code-icon">123</span> Join with code</a>
-        <a href="#" class="dash-btn dash-btn-green">+ Create a chama</a>
+        <!-- CHANGED: href="#join-chama" opens the Join modal -->
+        <a href="#join-chama" class="dash-btn dash-btn-light"><span class="dash-code-icon">123</span> Join with code</a>
+        <!-- CHANGED: href="#create-chama" opens the Create modal -->
+        <a href="#create-chama" class="dash-btn dash-btn-green">+ Create a chama</a>
       </div>
     </section>
 
@@ -83,15 +85,15 @@
         </div>
       </article>
 
-      <!-- Card 2: create a chama -->
-      <a href="#" class="dash-card dash-card-action">
+      <!-- Card 2: create a chama (CHANGED: opens the Create modal) -->
+      <a href="#create-chama" class="dash-card dash-card-action">
         <span class="dash-action-icon">+</span>
         <h2>A new beginning</h2>
         <p class="dash-card-text">Create a space for your next chama.</p>
       </a>
 
-      <!-- Card 3: join an existing chama -->
-      <a href="#" class="dash-card dash-card-action">
+      <!-- Card 3: join an existing chama (CHANGED: opens the Join modal) -->
+      <a href="#join-chama" class="dash-card dash-card-action">
         <span class="dash-action-icon"><span class="dash-code-icon">123</span></span>
         <h2>Enter invite code</h2>
         <p class="dash-card-text">Connect to an existing chama group using a code.</p>
@@ -102,7 +104,187 @@
 
 
   <!-- ============ FOOTER ============ -->
-  <%- include('partials/footer') %>
+   <%- include('partials/footer') %>
 
+  <!-- =====================================================
+       MODALS (CSS-only, shown with :target)
+       Hidden by default. Opened by href="#create-chama" / "#join-chama".
+       Closed by any link pointing to href="#" (X, Cancel, dark backdrop).
+       ===================================================== -->
+
+  <!-- ============ MODAL 1: CREATE A NEW CHAMA ============ -->
+  <div class="dash-modal" id="create-chama" role="dialog" aria-modal="true" aria-labelledby="create-chama-title">
+    <a href="#" class="dash-modal-backdrop" aria-label="Close and return to dashboard" tabindex="-1"></a>
+
+    <div class="dash-modal-dialog">
+      <a href="#" class="dash-modal-close" aria-label="Close">×</a>
+
+      <header class="dash-modal-head">
+        <span class="dash-eyebrow">NEW GROUP</span>
+        <h2 id="create-chama-title">Create a New Chama</h2>
+        <p>Set up the basics now. You can change most of these later.</p>
+      </header>
+
+      <form class="dash-form" action="/chamas" method="POST" id="creat-chama-form">
+
+        <div class="dash-field">
+          <label for="cc-name" id="cc-name-label">Chama name</label>
+          <input type="text" id="cc-name" name="name" placeholder="e.g. Harambee Women Club" maxlength="60" required>
+        </div>
+
+        <div class="dash-field">
+          <label for="cc-type" id="cc-type-label">Chama type</label>
+          <select id="cc-type" name="type" required>
+            <option value="" selected disabled>Select a type</option>
+            <option value="rotation">Merry-go-round (rotation)</option>
+            <option value="savings">Savings</option>
+            <option value="welfare">Welfare</option>
+            <option value="investment">Investment</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+
+        <div class="dash-field-row">
+
+          <div class="dash-field">
+            <label for="cc-amount" id="amount-label">Contribution amount (KES)</label>
+            <input type="number" id="cc-amount" name="contribution_amount" placeholder="e.g. 2000" min="1" step="1" inputmode="numeric"  id="amount-input" required>
+          </div>
+
+          <div class="dash-field">
+            <label for="cc-frequency">Contribution frequency</label>
+            <select id="cc-frequency" name="frequency" required>
+              <option value="" selected disabled>Select frequency</option>
+              <optgroup label="Short-term">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Every 2 weeks</option>
+              </optgroup>
+              <optgroup label="Long-term">
+                <option value="monthly">Monthly</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="dash-field-row">
+          <div class="dash-field">
+            <label for="cc-members" id="slotsLabel">Number of slots</label>
+            <input type="number" id="cc-members" name="max_slots" placeholder="e.g. 12" min="3" step="1" inputmode="numeric" required>
+          </div>
+          <div class="dash-field">
+            <label for="cc-start">Start date</label>
+            <input type="date" id="cc-start" name="start_date" required>
+          </div>
+        </div>
+
+        <div class="dash-field">
+          <label for="cc-max-slots" >Max slots per member</label>
+          <select id="cc-max-slots" name="max_slots_per_member" required>
+            <option value="1" selected>1 (one turn each)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <span class="dash-hint">A slot is one payout turn. A member who takes 2 slots is paid twice and pays the contribution amount for each slot.</span>
+        </div>
+
+        <div class="dash-field">
+          <label for="cc-order">Payout order</label>
+          <select id="cc-order" name="payout_order" required>
+            <option value="" selected disabled>Select how members are paid</option>
+            <option value="fixed">Fixed order (set by the group)</option>
+            <option value="random">Random draw</option>
+            <option value="joining">Order of joining</option>
+          </select>
+        </div>
+
+        <label class="dash-check">
+          <input type="checkbox" name="separate_slots" value="1">
+          <span>Keep a member's slots apart in the payout order, so nobody is paid twice in a row.</span>
+        </label>
+
+        <div class="dash-field">
+          <label for="cc-code" id="invite-Label">Invitation code</label>
+          <input type="text" id="cc-code" name="invite_code" class="dash-code-input" placeholder="e.g. HWC-2026" minlength="4" maxlength="16" pattern="[A-Za-z0-9\-]{4,16}" title="4 to 16 letters, numbers or hyphens" autocomplete="off" autocapitalize="characters" required>
+          <span class="dash-hint">You choose this code. Members enter it with "Join with code" to join your chama. Use 4 to 16 letters, numbers or hyphens.</span>
+        </div>
+
+        <div class="dash-field">
+          <label for="cc-desc" id="msgLabel">Description <span class="dash-optional">(optional)</span></label>
+          <textarea id="cc-desc" name="description" rows="3" maxlength="300" placeholder="What is this chama for? Add any rules members should know."></textarea>
+        </div>
+
+        <div class="dash-modal-actions">
+          <a href="#" class="dash-btn dash-btn-light">Cancel</a>
+          <button type="submit" class="dash-btn dash-btn-green">Create chama</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ============ MODAL 2: JOIN AN EXISTING CHAMA ============ -->
+  <div class="dash-modal" id="join-chama" role="dialog" aria-modal="true" aria-labelledby="join-chama-title">
+    <a href="#" class="dash-modal-backdrop" aria-label="Close and return to dashboard" tabindex="-1"></a>
+
+    <div class="dash-modal-dialog dash-modal-dialog-sm">
+      <a href="#" class="dash-modal-close" aria-label="Close">×</a>
+
+      <header class="dash-modal-head">
+        <span class="dash-eyebrow">INVITATION</span>
+        <h2 id="join-chama-title">Join an Existing Chama</h2>
+        <p>Enter the code you received from a chama official.</p>
+      </header>
+
+      <form class="dash-form" action="/chamas/join" method="POST">
+
+        <div class="dash-field">
+          <label for="jc-code">Invitation code</label>
+          <input type="text" id="jc-code" name="invite_code" class="dash-code-input" placeholder="e.g. HWC-4821" maxlength="16" autocomplete="off" autocapitalize="characters" required>
+        </div>
+
+        <div class="dash-field">
+          <label for="jc-slots">Slots you want</label>
+          <select id="jc-slots" name="slots" required>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <span class="dash-hint">One slot is one payout turn, and you pay the contribution amount for each slot. The chama sets the maximum you can take.</span>
+        </div>
+
+        <!-- Verified identity -->
+        <div class="dash-identity">
+          <span class="dash-identity-label">Verified identity</span>
+          <div class="dash-identity-row">
+            <span class="dash-avatar">W</span>
+            <span class="dash-identity-text">
+              <span class="dash-identity-name">Wanjiku</span>
+              <span class="dash-identity-phone">+254 722 ••• 419</span>
+            </span>
+            <span class="dash-badge dash-badge-pill">Verified</span>
+          </div>
+        </div>
+
+        <!-- Information message -->
+        <p class="dash-info">
+          <span class="dash-info-icon" aria-hidden="true">i</span>
+          <span>You will join with this account. Chama officials will be able to see your name and phone number.</span>
+        </p>
+
+        <div class="dash-modal-actions">
+          <a href="#" class="dash-btn dash-btn-light">Cancel</a>
+          <button type="submit" class="dash-btn dash-btn-green">Join Chama</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="/assets/dashboard.js" ></script>
 </body>
 </html>
