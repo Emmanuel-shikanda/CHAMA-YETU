@@ -11,6 +11,7 @@
   <!-- Homepage styles first, then the login/register styles -->
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/auth.css">
+
 </head>
 <body>
 
@@ -75,25 +76,25 @@
         <h1>Sign In</h1>
        
 
-        <form action="#" method="post">
+        <form action="#" method="post" id="login-form">
 
-          <!-- Email or username -->
+          <!-- Email -->
           <div class="form-group">
-            <label class="form-label" for="login-id">Email address or username</label>
-            <input class="form-input" type="text" id="login-id" name="login-id" placeholder="name@example.com or username" required>
+            <label class="form-label" for="login-id" id="email-label">Email address</label>
+            <input class="form-input" type="email" id="login-email" name="login-id" placeholder="name@example.com" >
           </div>
-
+`
           <!-- Password -->
           <div class="form-group">
             <div class="form-label-row">
-              <label class="form-label" for="login-password">Password</label>
+              <label class="form-label" for="login-password" id="password-label">Password</label>
               <a href="#" class="form-link">Forgot password?</a>
             </div>
             <div class="password-wrap">
               <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required>
               <!-- Show/hide button: add your own image and JavaScript later -->
-              <button class="password-toggle" type="button" aria-label="Show password">
-                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              <button class="password-toggle" type="button" aria-label="Show password" id="eye-toggle">
+                <img src="/assets/images/icons8-closed-eye-100.png"  id="password-eye" alt="Show password">
               </button>
             </div>
           </div>
@@ -120,5 +121,7 @@
     </section>
   </main>
 
+  
+<script src="/assets/login.js"></script>
 </body>
 </html>

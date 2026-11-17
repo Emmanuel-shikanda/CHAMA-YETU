@@ -75,35 +75,35 @@
         <h1>Join Us</h1>
       
 
-        <form action="#" method="post">
+        <form action="#" method="post" id="register-form">
 
           <!-- Full name -->
           <div class="form-group">
-            <label class="form-label" for="full-name">Full name</label>
-            <input class="form-input" type="text" id="full-name" name="full-name" placeholder="e.g. Wanjiku Kamau" required>
+            <label class="form-label" for="full-name" id="full-name-label">Full name</label>
+            <input class="form-input" type="text" id="full-name" name="full-name" placeholder="e.g. Wanjiku Kamau" id="full-name-input" required>
           </div>
 
           <!-- Email -->
           <div class="form-group">
-            <label class="form-label" for="email">Email address</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="name@example.com" required>
+            <label class="form-label" for="email" id="email-label">Email address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="name@example.com" id="email-input" required>
           </div>
 
           <!-- Phone number (used for M-Pesa) -->
           <div class="form-group">
-            <label class="form-label" for="phone">Phone number</label>
-            <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. 0722 000 000" required>
-            <span class="form-hint">Use your Safaricom number for M-Pesa.</span>
+            <label class="form-label" for="phone" id="phone-label">Phone number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. 0722 000 000" id="phone-input" required>
+            <span class="form-hint" id="form-hint-id">Use your Safaricom number for M-Pesa.</span>
           </div>
 
           <!-- Password -->
           <div class="form-group">
-            <label class="form-label" for="password">Password</label>
+            <label class="form-label" for="password" id="password-label">Password</label>
             <div class="password-wrap">
               <input class="form-input" type="password" id="password" name="password" placeholder="Create a password" minlength="12" required>
               <!-- Show/hide button: add your own image and JavaScript later -->
-              <button class="password-toggle" type="button" aria-label="Show password">
-                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              <button class="password-toggle" type="button" aria-label="Show password" id="eye-toggle">
+                <img src="/assets/images/icons8-closed-eye-100.png" alt="" id="password-eye">
               </button>
             </div>
             <span class="form-hint">At least 12 characters.</span>
@@ -111,11 +111,11 @@
 
           <!-- Confirm password -->
           <div class="form-group">
-            <label class="form-label" for="confirm-password">Confirm password</label>
+            <label class="form-label" for="confirm-password" id="confirm-password-label">Confirm password</label>
             <div class="password-wrap">
               <input class="form-input" type="password" id="confirm-password" name="confirm-password" placeholder="Repeat your password" required>
-              <button class="password-toggle" type="button" aria-label="Show password">
-                <img src="/assets/images/icons8-closed-eye-100.png" alt="">
+              <button class="password-toggle" type="button" aria-label="Show password" id="confirm-eye">
+                <img src="/assets/images/icons8-closed-eye-100.png" alt="" id="confirm-img">
               </button>
             </div>
           </div>
@@ -141,6 +141,6 @@
 
     </section>
   </main>
-
+<script src="assets/register.js"></script>
 </body>
 </html>
