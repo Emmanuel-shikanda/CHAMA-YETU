@@ -17,7 +17,7 @@ let fullnameLabel=document.getElementById('full-name-label');
 
 let userfullnameinput = document.getElementById('full-name').value.trim();
 
-let namePattern = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+let namePattern = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
 
 if(userfullnameinput.length < 3){
 
@@ -54,7 +54,7 @@ if(!namePattern.test(userfullnameinput)){
 let emailLabel = document.getElementById('email-label');
 let useremailInput = document.getElementById('email').value;
 
-let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;;
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 if(!emailPattern.test(useremailInput)){
 emailLabel.textContent="invalid email";
@@ -104,8 +104,8 @@ let passwordLabel=document.getElementById('password-label');
 
 let userpasswordvalue = userpassword.value;
 
-if(userpasswordvalue.length < 12){
-passwordLabel.textContent='password should have at least 12 characters';
+if(userpasswordvalue.length < 8){
+passwordLabel.textContent='password should have at least 8 characters';
 
 passwordLabel.style.color='red';
 
@@ -197,6 +197,8 @@ passwordLabel.textContent='passwords match '
 passwordLabel.style.color='green';
 
 }
+
+form.submit();
 
 
 })

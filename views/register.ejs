@@ -75,12 +75,16 @@
         <h1>Join Us</h1>
       
 
-        <form action="#" method="post" id="register-form">
+        <form action="/register" method="post" id="register-form">
+
+<% if (typeof error !== 'undefined') { %>
+    <p class="error-message"><%= error %></p>
+<% } %>
 
           <!-- Full name -->
           <div class="form-group">
             <label class="form-label" for="full-name" id="full-name-label">Full name</label>
-            <input class="form-input" type="text" id="full-name" name="full-name" placeholder="e.g. Wanjiku Kamau" id="full-name-input" required>
+            <input class="form-input" type="text" id="full-name" name="fullname" placeholder="e.g. Wanjiku Kamau" id="full-name-input" required>
           </div>
 
           <!-- Email -->
@@ -92,7 +96,7 @@
           <!-- Phone number (used for M-Pesa) -->
           <div class="form-group">
             <label class="form-label" for="phone" id="phone-label">Phone number</label>
-            <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. 0722 000 000" id="phone-input" required>
+            <input class="form-input" type="tel" id="phone" name="phonenumber" placeholder="e.g. 0722 000 000" id="phone-input" required>
             <span class="form-hint" id="form-hint-id">Use your Safaricom number for M-Pesa.</span>
           </div>
 
@@ -100,20 +104,20 @@
           <div class="form-group">
             <label class="form-label" for="password" id="password-label">Password</label>
             <div class="password-wrap">
-              <input class="form-input" type="password" id="password" name="password" placeholder="Create a password" minlength="12" required>
+              <input class="form-input" type="password" id="password" name="password" placeholder="Create a password" minlength="8" required>
               <!-- Show/hide button: add your own image and JavaScript later -->
               <button class="password-toggle" type="button" aria-label="Show password" id="eye-toggle">
                 <img src="/assets/images/icons8-closed-eye-100.png" alt="" id="password-eye">
               </button>
             </div>
-            <span class="form-hint">At least 12 characters.</span>
+            <span class="form-hint">At least 8 characters.</span>
           </div>
 
           <!-- Confirm password -->
           <div class="form-group">
             <label class="form-label" for="confirm-password" id="confirm-password-label">Confirm password</label>
             <div class="password-wrap">
-              <input class="form-input" type="password" id="confirm-password" name="confirm-password" placeholder="Repeat your password" required>
+              <input class="form-input" type="password" id="confirm-password" name="confirmpassword" placeholder="Repeat your password" required>
               <button class="password-toggle" type="button" aria-label="Show password" id="confirm-eye">
                 <img src="/assets/images/icons8-closed-eye-100.png" alt="" id="confirm-img">
               </button>

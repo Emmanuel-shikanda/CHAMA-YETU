@@ -7,20 +7,6 @@ app.get('/',function(req,res){
 res.render('home');
 })
 
-//create-account
-
-app.get('/register',function(req,res){
-
-res.render('register');
-
-});
-
-//login
-app.get('/login',function(req,res){
-
-res.render('login');
-
-})
 
 
 //support-page
@@ -28,7 +14,6 @@ res.render('login');
 app.get('/support',function(req,res){
 res.render('support')
 })
-
 
 
 app.get('/dashboard',function(req,res){

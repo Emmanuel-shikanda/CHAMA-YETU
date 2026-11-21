@@ -26,17 +26,28 @@
         <span class="dash-brand">CHAMA-YETU</span>
       </a>
 
-      <!-- Middle: Sign out -->
-      <a href="/" class="dash-signout">Sign out</a>
+      <!-- Right: user profile + dropdown menu (CSS-only, no JavaScript) -->
+      <div class="dash-profile-wrap">
+        <input type="checkbox" id="dash-menu-toggle" class="dash-menu-toggle" aria-label="Open account menu">
 
-      <!-- Right: user profile -->
-      <div class="dash-profile">
-        <span class="dash-avatar">W</span>
-        <span class="dash-user-text">
-          <span class="dash-user-name">Wanjiku</span>
-          <span class="dash-user-phone">+254 722 ••• 419</span>
-        </span>
-        <span class="dash-arrow"></span>
+        <!-- Invisible full-screen layer: clicking outside closes the menu -->
+        <label for="dash-menu-toggle" class="dash-menu-backdrop" aria-hidden="true"></label>
+
+        <!-- Clicking the profile or the arrow opens the menu -->
+        <label for="dash-menu-toggle" class="dash-profile">
+          <span class="dash-avatar">W</span>
+          <span class="dash-user-text">
+            <span class="dash-user-name">Wanjiku</span>
+            <span class="dash-user-phone">+254 722 ••• 419</span>
+          </span>
+          <span class="dash-arrow"></span>
+        </label>
+
+        <nav class="dash-menu" aria-label="Account menu">
+          <a href="/dashboard" class="dash-menu-item">My chamas</a>
+          <a href="/support" class="dash-menu-item">Help &amp; support</a>
+          <a href="/" class="dash-menu-item dash-menu-signout">Sign out</a>
+        </nav>
       </div>
 
     </div>
